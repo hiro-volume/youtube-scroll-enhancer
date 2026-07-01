@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Scroll Enhancer",
+  "version": "2.0.2",
+  "description": "動画プレーヤーを固定し、コメントを右側のサイドバーに移動させることで、動画とコメントをそれぞれ独立してスクロールできるようにします。",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Scroll Enhancer Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
